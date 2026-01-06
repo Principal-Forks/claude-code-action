@@ -14,6 +14,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.2.11"
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -21,7 +26,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - name: Install project dependencies
-        run: npm ci
+        run: bun install
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
