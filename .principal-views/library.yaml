@@ -1,0 +1,108 @@
+version: "1.0.0"
+name: "Claude Code Action Component Library"
+
+nodeComponents:
+  # Entry Points
+  entrypoint:
+    description: "Action entry point or execution phase"
+    color: "#4A90E2"
+    icon: "PlayCircle"
+    tags: ["entry-points"]
+
+  # Core Systems
+  mode-system:
+    description: "Execution mode (Tag or Agent)"
+    color: "#7B68EE"
+    icon: "GitBranch"
+    tags: ["core"]
+
+  # GitHub Integration Layer
+  github-integration:
+    description: "GitHub API and context handling"
+    color: "#24292E"
+    icon: "Github"
+    tags: ["integration"]
+
+  authentication:
+    description: "Authentication and token management"
+    color: "#F59E0B"
+    icon: "Lock"
+    tags: ["security"]
+
+  validation:
+    description: "Validation logic (permissions, triggers, actors)"
+    color: "#EF4444"
+    icon: "ShieldCheck"
+    tags: ["security"]
+
+  # Operations
+  operations:
+    description: "GitHub operations (branches, comments, git)"
+    color: "#10B981"
+    icon: "GitPullRequest"
+    tags: ["operations"]
+
+  # MCP Servers
+  mcp-server:
+    description: "Model Context Protocol server"
+    color: "#8B5CF6"
+    icon: "Server"
+    tags: ["mcp"]
+
+  # Prompt System
+  prompt-generation:
+    description: "Prompt creation and context preparation"
+    color: "#EC4899"
+    icon: "FileText"
+    tags: ["core"]
+
+  # Claude Execution
+  claude-execution:
+    description: "Claude Code CLI execution"
+    color: "#D97706"
+    icon: "Zap"
+    tags: ["execution"]
+
+  # External Services
+  external-service:
+    description: "External service or API"
+    color: "#6B7280"
+    icon: "Cloud"
+    tags: ["external"]
+
+edgeComponents:
+  # Flow Types
+  data-flow:
+    description: "Data transformation and flow"
+    color: "#3B82F6"
+    style: "solid"
+    directed: true
+    tags: ["data"]
+
+  api-call:
+    description: "External API call or integration"
+    color: "#8B5CF6"
+    style: "dashed"
+    directed: true
+    tags: ["integration"]
+
+  control-flow:
+    description: "Control flow and orchestration"
+    color: "#10B981"
+    style: "solid"
+    directed: true
+    tags: ["control"]
+
+  service-integration:
+    description: "Service-to-service integration"
+    color: "#F59E0B"
+    style: "dotted"
+    directed: true
+    tags: ["integration"]
+
+  configuration:
+    description: "Configuration or setup flow"
+    color: "#6366F1"
+    style: "dashed"
+    directed: true
+    tags: ["config"]

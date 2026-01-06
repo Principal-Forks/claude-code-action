@@ -1,0 +1,287 @@
+{
+  "pv": {
+    "name": "Claude Code Action - High-Level Overview",
+    "version": "1.0.0"
+  },
+  "nodes": [
+    {
+      "id": "trigger",
+      "type": "group",
+      "x": 53,
+      "y": -197,
+      "width": 300,
+      "height": 150,
+      "label": "External Triggers",
+      "pv": {
+        "nodeType": "external-service",
+        "name": "External Triggers",
+        "description": "GitHub webhooks and workflow events"
+      }
+    },
+    {
+      "id": "github-webhook",
+      "type": "text",
+      "text": "GitHub Events\n\n- Issues\n- Pull Requests\n- Comments\n- Workflow Dispatch",
+      "x": 78,
+      "y": -167,
+      "width": 250,
+      "height": 100,
+      "pv": {
+        "nodeType": "external-service",
+        "name": "GitHub Events"
+      }
+    },
+    {
+      "id": "preparation",
+      "type": "group",
+      "x": 53,
+      "y": 3,
+      "width": 300,
+      "height": 200,
+      "label": "Preparation Phase",
+      "pv": {
+        "nodeType": "entrypoint",
+        "name": "Preparation Phase",
+        "description": "Setup, authentication, validation, and data fetching"
+      }
+    },
+    {
+      "id": "prep-details",
+      "type": "text",
+      "text": "Preparation\n\n1. Authenticate (OIDC)\n2. Parse event context\n3. Validate permissions & triggers\n4. Detect mode (Tag/Agent)\n5. Fetch PR/issue data\n6. Setup branches & comments",
+      "x": 78,
+      "y": 33,
+      "width": 250,
+      "height": 150,
+      "pv": {
+        "nodeType": "entrypoint",
+        "name": "Preparation"
+      }
+    },
+    {
+      "id": "mode-selection",
+      "type": "group",
+      "x": 52,
+      "y": 269,
+      "width": 300,
+      "height": 200,
+      "label": "Execution Mode",
+      "pv": {
+        "nodeType": "mode-system",
+        "name": "Execution Mode",
+        "description": "Tag mode for @claude mentions, Agent mode for automation"
+      }
+    },
+    {
+      "id": "tag-agent-modes",
+      "type": "text",
+      "text": "Mode Selection\n\n**Tag Mode**\n- @claude mentions\n- Tracking comments\n- Full tool access\n\n**Agent Mode**\n- Direct automation\n- Scheduled/dispatched\n- Configurable tools",
+      "x": 78,
+      "y": 306,
+      "width": 250,
+      "height": 150,
+      "pv": {
+        "nodeType": "mode-system",
+        "name": "Mode Selection"
+      }
+    },
+    {
+      "id": "execution",
+      "type": "group",
+      "x": 450,
+      "y": 250,
+      "width": 350,
+      "height": 250,
+      "label": "Claude Execution",
+      "pv": {
+        "nodeType": "claude-execution",
+        "name": "Claude Execution",
+        "description": "Prompt generation, MCP setup, and Claude Code CLI execution"
+      }
+    },
+    {
+      "id": "exec-details",
+      "type": "text",
+      "text": "Claude Code Execution\n\n1. Generate prompt with context\n2. Configure MCP servers:\n   - Comment updates\n   - File operations (commit)\n   - Inline PR comments\n   - GitHub Actions access\n3. Execute Claude Code CLI\n4. Process tool calls",
+      "x": 475,
+      "y": 280,
+      "width": 300,
+      "height": 200,
+      "pv": {
+        "nodeType": "claude-execution",
+        "name": "Execution Details"
+      }
+    },
+    {
+      "id": "results",
+      "type": "group",
+      "x": 450,
+      "y": 550,
+      "width": 350,
+      "height": 150,
+      "label": "Results Processing",
+      "pv": {
+        "nodeType": "entrypoint",
+        "name": "Results Processing",
+        "description": "Update tracking comments and format conversation output"
+      }
+    },
+    {
+      "id": "results-details",
+      "type": "text",
+      "text": "Post-Processing\n\n- Update tracking comment\n- Add PR/branch links\n- Format conversation summary\n- Update job status",
+      "x": 475,
+      "y": 580,
+      "width": 300,
+      "height": 100,
+      "pv": {
+        "nodeType": "entrypoint",
+        "name": "Results"
+      }
+    },
+    {
+      "id": "github-api-box",
+      "type": "group",
+      "x": 898,
+      "y": -47,
+      "width": 250,
+      "height": 300,
+      "label": "GitHub API",
+      "pv": {
+        "nodeType": "external-service",
+        "name": "GitHub API",
+        "description": "REST and GraphQL API interactions"
+      }
+    },
+    {
+      "id": "github-api-details",
+      "type": "text",
+      "text": "GitHub API\n\n**REST API**\n- Comments CRUD\n- Branches\n- Commits\n- PR operations\n\n**GraphQL API**\n- PR/issue details\n- Comments history\n- File changes",
+      "x": 923,
+      "y": -17,
+      "width": 200,
+      "height": 250,
+      "pv": {
+        "nodeType": "external-service",
+        "name": "GitHub API"
+      }
+    },
+    {
+      "id": "claude-api-box",
+      "type": "group",
+      "x": 1178,
+      "y": 220,
+      "width": 250,
+      "height": 300,
+      "label": "Claude AI",
+      "pv": {
+        "nodeType": "external-service",
+        "name": "Claude AI",
+        "description": "AI model providers"
+      }
+    },
+    {
+      "id": "claude-api-details",
+      "type": "text",
+      "text": "Claude AI Providers\n\n- Anthropic API\n- AWS Bedrock\n- Google Vertex AI\n- Microsoft Foundry\n\nExecutes with:\n- MCP tool access\n- GitHub context\n- Repository code",
+      "x": 1203,
+      "y": 250,
+      "width": 200,
+      "height": 250,
+      "pv": {
+        "nodeType": "external-service",
+        "name": "Claude Providers"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "github-webhook",
+      "toNode": "prep-details",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "Webhook event",
+      "pv": {
+        "edgeType": "control-flow"
+      }
+    },
+    {
+      "id": "e2",
+      "fromNode": "prep-details",
+      "toNode": "tag-agent-modes",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "Context ready",
+      "pv": {
+        "edgeType": "data-flow"
+      }
+    },
+    {
+      "id": "e3",
+      "fromNode": "tag-agent-modes",
+      "toNode": "exec-details",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "Mode config",
+      "pv": {
+        "edgeType": "control-flow"
+      }
+    },
+    {
+      "id": "e4",
+      "fromNode": "exec-details",
+      "toNode": "results-details",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "Execution complete",
+      "pv": {
+        "edgeType": "control-flow"
+      }
+    },
+    {
+      "id": "e5",
+      "fromNode": "prep-details",
+      "toNode": "github-api-details",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "Fetch data",
+      "pv": {
+        "edgeType": "api-call"
+      }
+    },
+    {
+      "id": "e6",
+      "fromNode": "exec-details",
+      "toNode": "claude-api-details",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "AI requests",
+      "pv": {
+        "edgeType": "api-call"
+      }
+    },
+    {
+      "id": "e7",
+      "fromNode": "exec-details",
+      "toNode": "github-api-details",
+      "fromSide": "right",
+      "toSide": "bottom",
+      "label": "MCP tools\n(comments, commits, reviews)",
+      "pv": {
+        "edgeType": "api-call"
+      }
+    },
+    {
+      "id": "e8",
+      "fromNode": "results-details",
+      "toNode": "github-api-details",
+      "fromSide": "right",
+      "toSide": "bottom",
+      "label": "Update results",
+      "pv": {
+        "edgeType": "api-call"
+      }
+    }
+  ]
+}
